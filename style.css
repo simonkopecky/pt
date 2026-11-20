@@ -24,8 +24,31 @@ body {
 }
 
 .square {
+	position: relative;
+	border-radius: .5em;
 	padding: .5rem 0;
+}
+
+.square.hidden {
 	background: lightgray;
+	color: rgba(0, 0, 0, 0);
+}
+
+.square.hidden .square-number {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	color: gray;
+}
+
+.square.shown .square-number {
+	display: none;
+}
+
+.square.shown {
+	color: black;
 }
 
 .square > div {
