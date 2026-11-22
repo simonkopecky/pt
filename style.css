@@ -1,17 +1,114 @@
 html {
 	height: 100%;
+	min-height: fit-content;
 }
 
 body {
 	width: min(fit-content, 100%);
 	height: 100%;
+	min-height: fit-content;
+	margin: 0;
+	font-family: "Inter", sans-serif;
+}
+
+#end-popup-container {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	z-index: 100;
+}
+
+.end-popup-background {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: .4;
+}
+
+#end-popup-container.disabled {
+	display: none
+}
+
+.end-popup {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	width: fit-content;
+	height: auto;
+	max-width: 90vw;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	background-color: white;
+	opacity: 1;
+
+	border-radius: 30px;
+	padding: 15px;
+}
+
+#end-popup-gif {
+	display: block;
+	width: auto;
+	height: auto;
+	flex: 1 1 auto;
+	max-width: 100%;
+	max-height: 60vh;
+	object-fit: contain;
+}
+
+.end-popup-text {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.end-popup-button {
+	max-width: fit-content;
+	padding: .75rem;
+	background-color: lightgray;
+	border-radius: 10px;
+
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.end-popup-button:hover {
+	background-color: darkgray;
+}
+
+.block-buttons {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 30px;
+}
+
+.block-button {
+	background-color: lightgray;
+	padding: .5rem;
+	border-radius: 10px;
+	font-size: 1.25cqw;
+	cursor: pointer;
+}
+
+.block-button.selected {
+	background-color: black;
+	color: white;
 }
 
 .main {
 	position: relative;
-	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%)
+	transform: translate(-50%, 0%);
+	padding: 20px;
 }
 
 #table {
@@ -23,28 +120,82 @@ body {
 	container-type: inline-size;
 }
 
+.current-element-container {
+	position: relative;
+	height: 0;
+	margin-top: 20px;
+}
+
+.current-element-box {
+	position: relative;
+	left: 40%;
+	transform: translate(-50%, 0%);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 6cqw;
+	height: 6cqw;
+
+	cursor: unset;
+	background: lightgray;
+	border-radius: .5em;
+	padding: .5rem;
+	text-align: center;
+	resize: horizontal;
+}
+
+#current-element-short {
+	font-size: 3cqw;
+}
+
+#current-element-title {
+	font-size: .9cqw;
+}
+
 .square {
+	aspect-ratio: 1;
+	cursor: pointer;
 	position: relative;
 	border-radius: .5em;
-	padding: .5rem 0;
+	padding: .25rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.square.disabled {
+	cursor: default;
+	opacity: .5;
 }
 
 .square.hidden {
 	background: lightgray;
-	color: rgba(0, 0, 0, 0);
+}
+
+.square.hidden > div {
+	opacity: 0
 }
 
 .square.hidden .square-number {
+	opacity: 1
+}
+
+.square .square-number {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	opacity: 1;
 
 	color: gray;
 }
 
 .square.shown .square-number {
-	display: none;
+	visibility: hidden;
+	user-select: none;
 }
 
 .square.shown {

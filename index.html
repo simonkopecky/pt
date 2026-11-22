@@ -2,19 +2,44 @@
 <html>
 	<head>
 		<title>Periodická tabulka</title>
-
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 	</head>
 
-	<script src="main.js"></script>
+	<script defer src="main.js"></script>
 
 	<body>
-		<div class="main">
-			<div id="table">
+		<div id="end-popup-container" class="disabled">
+			<div class="end-popup-background"></div>
+			<div class="end-popup">
 				
+				<img id="end-popup-gif" />
+
+				<div id="end-popup-error-count" class="end-popup-text">Počet chyb: 69</div>
+				<div class="end-popup-button" onclick='endPopupButtonClick()'>
+					Začít znovu
+				</div>
 			</div>
-			
-			<div class="current-element">
+		</div>
+
+		<div class="block-buttons">
+			<div id="default-block" class="block-button" onclick='blockButtonClick(this, "a")'>Všechny prvky</div>
+			<div class="block-button" onclick='blockButtonClick(this, "s")'>S prvky</div>
+			<div class="block-button" onclick='blockButtonClick(this, "p")'>P prvky</div>
+			<div class="block-button" onclick='blockButtonClick(this, "d")'>D prvky</div>
+			<div class="block-button" onclick='blockButtonClick(this, "f")'>F prvky</div>
+		</div>
+		<div class="main">
+			<div class="current-element-container">
+				<div class="current-element-box">
+					<div id="current-element-short"></div>
+					<div id="current-element-title"></div>
+				</div>
+			</div>
+
+			<div id="table">
 				
 			</div>
 		</div>
